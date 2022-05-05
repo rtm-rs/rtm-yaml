@@ -5,5 +5,7 @@ readonly SUBREPO=rtm-attributes
 
 find . -type f -name '*.rs' -print0 | xargs --null redo-ifchange
 
-git subrepo pull ${SUBREPO}
-git subrepo push ${SUBREPO}
+pushd ./..
+  git subrepo pull ${SUBREPO}
+  git subrepo push ${SUBREPO}
+popd
