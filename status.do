@@ -14,6 +14,6 @@ pushd ./..
   git subrepo push ${SUBREPO} --force
 popd
 
-# Even if a source file has changed, a redo script that monitors this,
-# will consider it changed only if there hs been a change across test results.
+# Even if a *.rs file has changed (above), a redo script that monitors this,
+# will see a change only if there hs been a change across results.
 cat tests/status | redo-stamp
