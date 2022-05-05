@@ -5,8 +5,6 @@ readonly SUBREPO=rtm-yaml
 
 find . -type f -name '*.rs' -print0 | xargs --null redo-ifchange
 
-# redo-ifchange benches/status examples/status src/status tests/status
-
 pushd ./..
   git subrepo clean ${SUBREPO}
   git subrepo pull ${SUBREPO}
