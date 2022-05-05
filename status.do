@@ -3,9 +3,9 @@ set -e
 
 readonly SUBREPO=rtm-yaml
 
-redo-ifchange tests/status
-
 find . -type f -name '*.rs' -print0 | xargs --null redo-ifchange
+
+redo-ifchange src/status tests/status
 
 pushd ./..
   git subrepo clean ${SUBREPO}
@@ -16,4 +16,4 @@ popd
 
 # Even if a *.rs file has changed (above), a redo script that monitors this,
 # will see a change only if there hs been a change across results.
-cat tests/status | redo-stamp
+cat src/status tests/status | redo-stamp
